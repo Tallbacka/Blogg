@@ -1,20 +1,21 @@
-body{
+body {
     width: 100vw;
-    background-color: lightblue;
-    text-align: center;   
-    font-family: 'Kalam', cursive;
+    background-color: lightsteelblue;
+    text-align: center;
+    font-family: 'Crimson Text', serif;
     font-size: 20px;
     font-weight: bold;
 }
 
-#inputContainer{
-    background-color: green;
-}
-#responseContainer{
-    background-color: rebeccapurple;
+#inputContainer {
+    background-color: rgb(185, 223, 185);
 }
 
-#wrapper{
+#responseContainer {
+    background-color: rgb(190, 190, 190);
+}
+
+#wrapper {
     margin-top: 5%;
     margin-bottom: 5%;
     align-items: center;
@@ -24,7 +25,8 @@ body{
     flex-flow: column;
     flex-direction: column;
 }
-.container{
+
+.container {
     margin: 5px;
     align-items: center;
     display: flex;
@@ -32,19 +34,37 @@ body{
     padding: 3%;
     justify-content: space-evenly;
     text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#inputContainer{
-    
+#header{
+    display:inline-flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+#bloggDropdown {
     width: 60vw;
-    height: 40vh;
+    justify-content: center;
 }
-#responseContainer{
+
+.form-control {
+    margin: 4px;
+}
+
+input {
+    text-align: start;
+}
+
+#blogg {
+    width: 30;
+}
+
+.btn {
+    width: 200px;
+}
+
+#responseContainer {
     width: 60vw;
-    height: 40vh;
-
-}
-
-input{
-    text-align: center;
 }

@@ -63,6 +63,7 @@ input {
 
 .btn {
     width: 200px;
+    margin: 5px;
 }
 
 #responseContainer {

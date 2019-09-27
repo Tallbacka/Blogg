@@ -1,7 +1,10 @@
 body{
     width: 100vw;
     background-color: lightblue;
-    
+    text-align: center;   
+    font-family: 'Kalam', cursive;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 #inputContainer{
@@ -28,6 +31,7 @@ body{
     flex-direction: column;
     padding: 3%;
     justify-content: space-evenly;
+    text-align: center;
 }
 
 #inputContainer{
@@ -39,4 +43,8 @@ body{
     width: 60vw;
     height: 40vh;
 
+}
+
+input{
+    text-align: center;
 }

@@ -1,0 +1,42 @@
+body{
+    width: 100vw;
+    background-color: lightblue;
+    
+}
+
+#inputContainer{
+    background-color: green;
+}
+#responseContainer{
+    background-color: rebeccapurple;
+}
+
+#wrapper{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    flex-direction: column;
+}
+.container{
+    margin: 5px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 3%;
+    justify-content: space-evenly;
+}
+
+#inputContainer{
+    
+    width: 60vw;
+    height: 40vh;
+}
+#responseContainer{
+    width: 60vw;
+    height: 40vh;
+
+}

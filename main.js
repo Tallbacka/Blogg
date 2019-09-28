@@ -2,6 +2,15 @@
 var inputs = document.getElementsByClassName("form-control");
 var parent = document.getElementById("wrapper");
 
+// document.getElementById("date").onload = function() {setDate()};
+
+// function setDate(){
+    console.log(Date(Date.now()));
+    var dateInput = document.getElementById("date");
+    dateInput.value = Date(Date.now());
+
+// }
+
 /* Creates an blogg object and stringyfies it and 
 saves it to localstorage */
 function saveData() {
@@ -27,8 +36,10 @@ function updateBlogg() {
 
         temp.push(postObject);
     }
-    temp.sort((a, b) => { return b.id - a.id });
+    temp.sort((a, b) => { return b.date.getTime - a.date.getTime});
     
+    console.log(temp);
+
     for (let i = 0; i < temp.length; i++) {
         sortedJson = JSON.parse(JSON.stringify(temp[i]))
         appendElements(sortedJson);

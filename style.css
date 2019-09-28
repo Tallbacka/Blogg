@@ -17,7 +17,7 @@ body {
 }
 
 #wrapper {
-    margin-top: 5%;
+    margin-top: 2%;
     margin-bottom: 5%;
     align-items: center;
     width: 100vw;
@@ -78,11 +78,16 @@ input {
     word-wrap: break-word;
 }
 
+#date{
+    font-size: 10px;
+    font-style: italic
+}
 
 @media only screen and ( min-width: 300px) {
   
     #bloggDropdown{
         margin: auto;
+        width: 80vw;
     }
     #responseContainer, #bloggDropdown {
         width: 80vw;

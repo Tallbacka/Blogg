@@ -2,14 +2,7 @@
 var inputs = document.getElementsByClassName("form-control");
 var parent = document.getElementById("wrapper");
 
-// document.getElementById("date").onload = function() {setDate()};
 
-// function setDate(){
-    console.log(Date(Date.now()));
-    var dateInput = document.getElementById("date");
-    dateInput.value = Date(Date.now());
-
-// }
 
 /* Creates an blogg object and stringyfies it and 
 saves it to localstorage */
@@ -24,6 +17,7 @@ function saveData() {
 
     localStorage.setItem(idx, JSON.stringify(bloggPost));
 
+    setDateTime();
     updateBlogg();
 }
 
@@ -36,20 +30,19 @@ function updateBlogg() {
 
         temp.push(postObject);
     }
-    temp.sort((a, b) => { return b.date.getTime - a.date.getTime});
-    
+    temp.sort((a, b) => { return Date.parse(a.date) - Date.parse(b.date) });
+
     console.log(temp);
 
     for (let i = 0; i < temp.length; i++) {
         sortedJson = JSON.parse(JSON.stringify(temp[i]))
         appendElements(sortedJson);
     }
-
-    
+    setDateTime();
 }
 
 // Appends graphical elements with data from json object
-function appendElements(postObject) {
+function appendElements(sortedJson) {
 
     var divContainer = document.createElement('div');
     divContainer.setAttribute('class', "container");
@@ -59,15 +52,15 @@ function appendElements(postObject) {
 
     var pHead = document.createElement('h1');
     pHead.setAttribute('id', "header");
-    pHead.innerHTML = postObject.header;
+    pHead.innerHTML = sortedJson.header;
 
     var pDate = document.createElement('p');
     pDate.setAttribute('id', "date");
-    pDate.innerHTML = postObject.date;
+    pDate.innerHTML = sortedJson.date;
 
     var pText = document.createElement('p');
     pText.setAttribute('id', "bloggText");
-    pText.innerHTML = postObject.blogg;
+    pText.innerHTML = sortedJson.blogg;
 
     article.appendChild(pHead);
     article.appendChild(pDate);
@@ -78,13 +71,20 @@ function appendElements(postObject) {
 
 }
 
+// Clear localstorage and remove the childelements
 function clearPosts() {
     localStorage.clear();
     removeChilds();
 }
-
+// Remove child elements in a parent element
 function removeChilds() {
     while (parent.hasChildNodes()) {
         parent.removeChild(parent.lastChild);
     }
+}
+
+// sets current datetime
+function setDateTime() {
+    var dateInput = document.getElementById("date");
+    dateInput.value = Date(Date.now());
 }

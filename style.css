@@ -40,7 +40,9 @@ body {
 }
 
 #header{
-    display:inline-flex;
+    display:inline-block;
+    align-content: center;
+    flex-wrap: wrap;
     flex-flow: column;
     justify-content: center;
 }
@@ -60,6 +62,7 @@ input {
 
 #blogg {
     width: 30;
+    
 }
 
 .btn {
@@ -75,12 +78,16 @@ input {
     word-wrap: break-word;
 }
 
+
 @media only screen and ( min-width: 300px) {
   
-    
-    #responseContainer, #bloggDropdown {
-        width: 100vw;
+    #bloggDropdown{
+        margin: auto;
     }
+    #responseContainer, #bloggDropdown {
+        width: 80vw;
+    }
+
 }
 
 /* smartphone landscapes */
@@ -100,14 +107,16 @@ input {
 /* Tablet landscape, desktop */
 
 @media only screen and (min-width: 1024px) {
-   
+    #responseContainer, #bloggDropdown {
+        width: 60vw;
+    }
 }
 
 /* Very large desktops */
 
 @media only screen and (min-width: 1199px) {
     #responseContainer, #bloggDropdown {
-        width: 30vw;
+        width: 40vw;
     }
      
     

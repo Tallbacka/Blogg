@@ -1,6 +1,6 @@
 // Ovning Webbutveckling .Net
-var inputs = document.getElementsByClassName("form-control")
-var parent = document.getElementById("wrapper")
+var inputs = document.getElementsByClassName("form-control");
+var parent = document.getElementById("wrapper");
 
 /* Creates an blogg object and stringyfies it and 
 saves it to localstorage */
@@ -20,12 +20,21 @@ function saveData() {
 
 // Parses data from localstorage to json object and updates the view
 function updateBlogg() {
-    removeChilds()
+    removeChilds();
+    var temp = [];
     for (let i = 0; i < localStorage.length; i++) {
         var postObject = JSON.parse(localStorage.getItem(localStorage.key(i)));
 
-        appendElements(postObject);
+        temp.push(postObject);
     }
+    temp.sort((a, b) => { return b.id - a.id });
+    
+    for (let i = 0; i < temp.length; i++) {
+        sortedJson = JSON.parse(JSON.stringify(temp[i]))
+        appendElements(sortedJson);
+    }
+
+    
 }
 
 // Appends graphical elements with data from json object
@@ -39,32 +48,32 @@ function appendElements(postObject) {
 
     var pHead = document.createElement('h1');
     pHead.setAttribute('id', "header");
-    pHead.innerHTML = postObject.header
+    pHead.innerHTML = postObject.header;
 
     var pDate = document.createElement('p');
     pDate.setAttribute('id', "date");
-    pDate.innerHTML = postObject.date
+    pDate.innerHTML = postObject.date;
 
     var pText = document.createElement('p');
     pText.setAttribute('id', "bloggText");
-    pText.innerHTML = postObject.blogg
+    pText.innerHTML = postObject.blogg;
 
-    article.appendChild(pHead)
-    article.appendChild(pDate)
-    article.appendChild(pText)
-    divContainer.appendChild(article)
+    article.appendChild(pHead);
+    article.appendChild(pDate);
+    article.appendChild(pText);
+    divContainer.appendChild(article);
     parent.appendChild(divContainer);
-    parent.insertAdjacentElement("afterbegin", divContainer)
+    parent.insertAdjacentElement("afterbegin", divContainer);
 
 }
 
 function clearPosts() {
     localStorage.clear();
-    removeChilds()
+    removeChilds();
 }
 
 function removeChilds() {
     while (parent.hasChildNodes()) {
-        parent.removeChild(parent.lastChild)
+        parent.removeChild(parent.lastChild);
     }
 }
